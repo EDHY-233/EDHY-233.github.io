@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>pixiv信息查询</title>
+
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/mdui@1.0.0/dist/css/mdui.min.css"
+  integrity="sha384-2PJ2u4NYg6jCNNpv3i1hK9AoAqODy6CdiC+gYiL2DVx+ku5wzJMFNdE3RoWfBIRP"
+  crossorigin="anonymous"
+  />
+</head>
+
+<body>
+  <br><br>
+  <div class="mdui-container mdui-typo">
+    <form action="" method="post">
+        <div class="mdui-row">
+            <div class="mdui-textfield mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-3">
+                <input name="pid" type="text" class="mdui-textfield-input" placeholder="PID" onblur="find()"><br>
+                <div id="progress" class="mdui-progress" style="display: none;"><div class="mdui-progress-indeterminate"></div></div>
+                <div id="img" style="display: none;">
+                  <img src="https://i.pixiv.cat/img-original/img/2020/07/06/12/28/41/82791318_p0.jpg" class="mdui-img-fluid">
+                </div>
+            </div>
+            <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-9">
+              <div class="mdui-panel" mdui-panel>
+                <div class="mdui-panel-item mdui-panel-item-open">
+                  <div class="mdui-panel-item-header">基本信息</div>
+                    <div class="mdui-panel-item-body">
+                      <p>PID：<a id=pid href="https://pixiv.net/artworks/82791318">82791318</a></p>
+                      <p id="title">标题：一个背刺！</p>
+                      <p id="caption">说明：设定来自：木梓星君</p>
+                      <p id="restrict">年龄限制：0</p>
+                    </div>
+                  </div>
+                
+                  <div class="mdui-panel-item">
+                    <div class="mdui-panel-item-header">上传者信息</div>
+                    <div class="mdui-panel-item-body">
+                      <p id="user">上传者：貓拾弎</p>
+                      <p id="uid">UID：13474866</p>
+                      <p id="account">账号：maoshisan</p>
+                    </div>
+                  </div>
+
+                  <div class="mdui-panel-item">
+                    <div class="mdui-panel-item-header">图集信息</div>
+                    <div class="mdui-panel-item-body">
+                      <p id="page_count">页面数量：1</p>
+                      <div id="meta_pages">
+                        <p>1：<a href="https://i.pixiv.cat/img-original/img/2020/07/06/12/28/41/82791318_p0.jpg">https://i.pximg.net/img-original/img/2020/07/06/12/28/41/82791318_p0.jpg</a></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mdui-panel-item">
+                    <div class="mdui-panel-item-header">标签</div>
+                    <div class="mdui-panel-item-body" id="tags">
+                      <div class="mdui-chip">
+                        <span class="mdui-chip-title">貓拾弎</span>
+                      </div>
+                      <div class="mdui-chip">
+                        <span class="mdui-chip-title">兽人</span>
+                      </div>
+                      <div class="mdui-chip">
+                        <span class="mdui-chip-title">兽</span>
+                      </div>
+                      <div class="mdui-chip">
+                        <span class="mdui-chip-title">13cat</span>
+                      </div>
+                      <div class="mdui-chip">
+                        <span class="mdui-chip-title">兽太</span>
+                      </div>
+                      <div class="mdui-chip">
+                        <span class="mdui-chip-title">furry</span>
+                      </div>
+                      <div class="mdui-chip">
+                        <span class="mdui-chip-title">狗</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mdui-panel-item">
+                    <div class="mdui-panel-item-header">其他信息</div>
+                    <div class="mdui-panel-item-body">
+                      <p id="create_date">创作时间：2020-07-06T12:28:41+09:00</p>
+                      <p id="tools">绘画工具：Photoshop</p>
+                    </div>
+                  </div>
+
+                  <div class="mdui-panel-item">
+                    <div class="mdui-panel-item-header">api请求结果</div>
+                    <div class="mdui-panel-item-body">
+                      <p id="request">{"illust":{"id":82791318,"title":"\u4e00\u4e2a\u80cc\u523a\uff01","type":"illust","image_urls":{"square_medium":"https:\/\/i.pximg.net\/c\/540x540_10_webp\/img-master\/img\/2020\/07\/06\/12\/28\/41\/82791318_p0_square1200.jpg","medium":"https:\/\/i.pximg.net\/c\/540x540_70\/img-master\/img\/2020\/07\/06\/12\/28\/41\/82791318_p0_master1200.jpg","large":"https:\/\/i.pximg.net\/c\/600x1200_90_webp\/img-master\/img\/2020\/07\/06\/12\/28\/41\/82791318_p0_master1200.jpg"},"caption":"\u8bbe\u5b9a\u6765\u81ea\uff1a\u6728\u6893\u661f\u541b","restrict":0,"user":{"id":13474866,"name":"\u8c93\u62fe\u5f0e","account":"maoshisan","profile_image_urls":{"medium":"https:\/\/i.pximg.net\/user-profile\/img\/2015\/07\/30\/19\/06\/42\/9683039_fbf321dac8f7c7db8576421bbd9829c5_170.jpg"},"is_followed":false},"tags":[{"name":"\u8c93\u62fe\u5f0e","translated_name":null},{"name":"\u517d\u4eba","translated_name":"furry"},{"name":"\u517d","translated_name":null},{"name":"13cat","translated_name":null},{"name":"\u517d\u592a","translated_name":null},{"name":"furry","translated_name":null},{"name":"\u72d7","translated_name":"dog"}],"tools":["Photoshop"],"create_date":"2020-07-06T12:28:41+09:00","page_count":1,"width":2480,"height":3508,"sanity_level":2,"x_restrict":0,"series":null,"meta_single_page":{"original_image_url":"https:\/\/i.pximg.net\/img-original\/img\/2020\/07\/06\/12\/28\/41\/82791318_p0.jpg"},"meta_pages":[],"total_view":695,"total_bookmarks":175,"is_bookmarked":false,"visible":true,"is_muted":false,"total_comments":4}}</p>
+                    </div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+            </div>
+         </div>
+    </form>
+  </div>
+
+  <!--script-->
+  <script
+  src="https://cdn.jsdelivr.net/npm/mdui@1.0.0/dist/js/mdui.min.js"
+  integrity="sha384-aB8rnkAu/GBsQ1q6dwTySnlrrbhqDwrDnpVHR2Wgm8pWLbwUnzDcIROX3VvCbaK+"
+  crossorigin="anonymous"></script>
+
+  <script>
+  var $ = mdui.$;
+
+  function find() {
+    var pid = document.getElementsByName("pid")[0].value;
+    $.ajax({
+      method: 'GET',
+      url: 'https://api.imjad.cn/pixiv/v2/',
+      data: {
+        id: pid,
+      },
+      dataType: 'json',
+      success: function (data) {
+        output(data)
+      },
+      error: function () {
+        document.getElementById('request').innerHTML="api请求失败";
+      },
+    });
+  }
+
+  function output(data) {
+    //输出原信息
+    console.log(data)
+    document.getElementById('request').innerHTML = JSON.stringify(data);
+    //基本信息
+    document.getElementById('pid').innerHTML = data['illust']['id'];
+    document.getElementById('pid').href = "https://pixiv.net/artworks/" + data['illust']['id'];
+    document.getElementById('title').innerHTML = "标题：" + data['illust']['title'];
+    document.getElementById('caption').innerHTML = "说明：" + data['illust']['caption'];
+    document.getElementById('restrict').innerHTML = "年龄限制：" + data['illust']['restrict'];
+    //用户信息
+    
+    document.getElementById('user').innerHTML = "上传者：" + data['illust']['user']['name'];
+    document.getElementById('uid').innerHTML = "UID：" + data['illust']['user']['id'];
+    document.getElementById('account').innerHTML = "账号：" + data['illust']['user']['account'];
+    //图集信息
+    document.getElementById('page_count').innerHTML = "页面数量：" + data['illust']['page_count'];
+    if (data['illust']['page_count'] == 1) {
+      document.getElementById('meta_pages').innerHTML = "";
+      $('<p>1：<a href="' + data['illust']['meta_single_page']['original_image_url'].replace("pximg.net", "pixiv.cat") + '">' + data['illust']['meta_single_page']['original_image_url'] + '</p>').appendTo(document.getElementById('meta_pages'));
+    } else {
+      document.getElementById('meta_pages').innerHTML = "";
+      for (var i = 0; i < data['illust']['meta_pages'].length; i++) {
+        $('<p>' + i + '：<a href="' + data['illust']['meta_pages'][i]['image_urls']['original'].replace("pximg.net", "pixiv.cat") + '">' + data['illust']['meta_pages'][i]['image_urls']['original'] + '</p>').appendTo(document.getElementById('meta_pages'));
+      }
+    }
+    //标签
+    document.getElementById('tags').innerHTML = "";
+    for (var i = 0; i < data['illust']['tags'].length; i++) {
+      $('<div class="mdui-chip"><span class="mdui-chip-title">' + data['illust']['tags'][i]['name'] + '</span></div>').appendTo(document.getElementById('tags'));
+    }
+    //其他信息
+    document.getElementById('create_date').innerHTML = "创作时间：" + data['illust']['create_date'];
+    document.getElementById('tools').innerHTML = "绘画工具：" + data['illust']['tools'];
+    //加载图片
+    loadImage(data)
+  } 
+
+  function loadImage(data) {
+    //咕咕咕
+  }
+  </script>
+</body>
+</html>

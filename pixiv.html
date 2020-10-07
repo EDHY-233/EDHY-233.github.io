@@ -50,7 +50,7 @@
                     <div class="mdui-panel-item-body">
                       <p id="page_count">页面数量：1</p>
                       <div id="meta_pages">
-                        <p>1：<a href="https://i.pixiv.cat/img-original/img/2020/07/06/12/28/41/82791318_p0.jpg">https://i.pximg.net/img-original/img/2020/07/06/12/28/41/82791318_p0.jpg</a></p>
+                        <p>1：<a href="https://i.pixiv.cat/img-original/img/2020/07/06/12/28/41/82791318_p0.jpg" target="_blank">https://i.pximg.net/img-original/img/2020/07/06/12/28/41/82791318_p0.jpg</a></p>
                       </div>
                     </div>
                   </div>
@@ -150,11 +150,11 @@
     document.getElementById('page_count').innerHTML = "页面数量：" + data['illust']['page_count'];
     if (data['illust']['page_count'] == 1) {
       document.getElementById('meta_pages').innerHTML = "";
-      $('<p>1：<a href="' + data['illust']['meta_single_page']['original_image_url'].replace("pximg.net", "pixiv.cat") + '">' + data['illust']['meta_single_page']['original_image_url'] + '</p>').appendTo(document.getElementById('meta_pages'));
+      $('<p>1：<a href="' + data['illust']['meta_single_page']['original_image_url'].replace("pximg.net", "pixiv.cat") + '" target="_blank">' + data['illust']['meta_single_page']['original_image_url'] + '</p>').appendTo(document.getElementById('meta_pages'));
     } else {
       document.getElementById('meta_pages').innerHTML = "";
       for (var i = 0; i < data['illust']['meta_pages'].length; i++) {
-        $('<p>' + i + '：<a href="' + data['illust']['meta_pages'][i]['image_urls']['original'].replace("pximg.net", "pixiv.cat") + '">' + data['illust']['meta_pages'][i]['image_urls']['original'] + '</p>').appendTo(document.getElementById('meta_pages'));
+        $('<p>' + i + '：<a href="' + data['illust']['meta_pages'][i]['image_urls']['original'].replace("pximg.net", "pixiv.cat") + '" target="_blank">' + data['illust']['meta_pages'][i]['image_urls']['original'] + '</p>').appendTo(document.getElementById('meta_pages'));
       }
     }
     //标签

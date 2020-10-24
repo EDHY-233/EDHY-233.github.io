@@ -256,7 +256,7 @@
                             <div class="mdui-card" id="jsonOutput"></div>
                     </div>
                     <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-9">
-                        <a href="" id="imgUrl" target="_blank" rel="noopener noreferrer"><img src="" style="max-height: 85vh;max-width: 100%;width: auto;" id="getImg" class="mdui-center" /></a>
+                        <a href="" id="img" target="_blank" rel="noopener noreferrer"><img src="" style="max-height: 85vh;max-width: 100%;width: auto;"  class="mdui-center" /></a>
                     </div>
                 </div>
             </div>
@@ -337,8 +337,8 @@
                     console.log(data)
                     var json = JSON.parse(data['responseText'])
                     document.getElementById('jsonOutput').innerHTML = data['responseText']
-                    document.getElementById('imgUrl').href = json['data']['url']
-                    document.getElementById('getImg').src = json['data']['url']
+                    document.getElementById('img').href = json['data']['url']
+                    document.getElementById('img').innerHTML = "<img src=\"" + json['data']['url'] + "\" style=\"max-height: 85vh;max-width: 100%;width: auto;\"  class=\"mdui-center\" />"
                     mdui.mutation()
                 }
                 })

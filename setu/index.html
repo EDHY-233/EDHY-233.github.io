@@ -40,6 +40,7 @@
                     由于这个API用了FastAPI框架，所以也可以使用FastAPI默认的<a href="https://fastapi.tiangolo.com/zh/features/#_3" target="_blank">交互式API文档</a>：
                     <a href="http://106.12.108.174:1145/docs" target="_blank">Swagger UI</a>、
                     <a href="http://106.12.108.174:1145/redoc" target="_blank">ReDoc</a></p>
+                    <p>有图的可以把插画的: uid, p, r18是否 整理好发给我<br>Email: y2692082551@outlook.com</p>
                     <h1 style="font-weight:700">前言</h1>
                     <ol>
                         <li>所有插画均来自 <a href="https://www.pixiv.net/" target="_blank">Pixiv</a>，版权也归画师所有，API 本身不提供插画的代理或储存服务</li>
@@ -72,6 +73,7 @@
                     </div>
                     <h1 style="font-weight:700">API</h1>
                     <p>GET  <code>http://106.12.108.174:1145/</code></p>
+                    <p>GET  <code>http://106.12.108.174:1145/file</code></p>
                     <h1 style="font-weight:700">请求</h1>
                     <div class="mdui-table-fluid">
                         <table class="mdui-table">
@@ -94,7 +96,13 @@
                                 <td><code>keyword</code></td>
                                 <td>false</td>
                                 <td>None</td>
-                                <td>若指定关键字，将会返回从插画标题、作者、标签中模糊搜索的结果（未完成</td>
+                                <td>若指定关键字，将会返回从插画标题、作者、标签中模糊搜索的结果</td>
+                            </tr>
+                            <tr>
+                                <td><code>author</code></td>
+                                <td>false</td>
+                                <td>None</td>
+                                <td>若指定UID，将会返回对应作者的插画</td>
                             </tr>
                             <tr>
                                 <td><code>proxy</code></td>
@@ -141,6 +149,8 @@
                             </tbody>
                         </table>
                     </div>
+                    <h5>关于 <code>/file</code></h5>
+                    <p><code>/file</code> API 的请求方法与 <code>/</code> 相同，但 <code>/file</code> 直接输出图片。<br>为节省带宽，图片为 size1200 输出（size1200 参数在此处无效</p>
                     <h2>setu</h2>
                     <div class="mdui-table-fluid">
                         <table class="mdui-table">
@@ -244,6 +254,10 @@
                                 <input class="mdui-textfield-input" type="text" id="keyword"/>
                             </div>
                             <div class="mdui-textfield mdui-textfield-floating-label">
+                                <label class="mdui-textfield-label">author</label>
+                                <input class="mdui-textfield-input" type="text" id="author"/>
+                            </div>
+                            <div class="mdui-textfield mdui-textfield-floating-label">
                                 <label class="mdui-textfield-label">proxy</label>
                                 <input class="mdui-textfield-input" type="text" id="proxy"/>
                             </div>
@@ -265,7 +279,7 @@
             <div class="mdui-container mdui-typo">
                 <div class="mdui-row">
                     <div class="mdui-col-xs-12 mdui-col-sm-6">
-                        <p>POST：<code>http://106.12.108.174:1145/{pid}/{p}</code></p>
+                        <p>GET：<code>http://106.12.108.174:1145/{pid}/{p}</code></p>
                             <div class="mdui-textfield mdui-textfield-floating-label">
                                 <label class="mdui-textfield-label">pid</label>
                                 <input class="mdui-textfield-input" type="text" id="pid"/>
@@ -322,6 +336,9 @@
                 }
                 if ($('#keyword').val()) {
                     getData['keyword'] = $('#keyword').val()
+                }
+                if ($('#author').val()) {
+                    getData['author'] = $('#author').val()
                 }
                 if ($('#proxy').val()) {
                     getData['proxy'] = $('#proxy').val()

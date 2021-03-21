@@ -14,7 +14,7 @@
         integrity="sha384-2PJ2u4NYg6jCNNpv3i1hK9AoAqODy6CdiC+gYiL2DVx+ku5wzJMFNdE3RoWfBIRP"
         crossorigin="anonymous"
         />
-        <title>随机涩图  API - Furry</title>
+        <title>Furpic API 文档</title>
     </head>
     <body onload="count()">
         <div class="mdui-tab mdui-tab-full-width" mdui-tab>
@@ -40,7 +40,6 @@
                     由于这个API用了FastAPI框架，所以也可以使用FastAPI默认的<a href="https://fastapi.tiangolo.com/zh/features/#_3" target="_blank">交互式API文档</a>：
                     <a href="http://106.12.108.174:1145/docs" target="_blank">Swagger UI</a>、
                     <a href="http://106.12.108.174:1145/redoc" target="_blank">ReDoc</a></p>
-                    <p>有图的可以把插画的: uid, p, r18是否 整理好发给我<br>Email: y2692082551@outlook.com</p>
                     <h1 style="font-weight:700">前言</h1>
                     <ol>
                         <li>所有插画均来自 <a href="https://www.pixiv.net/" target="_blank">Pixiv</a>，版权也归画师所有，API 本身不提供插画的代理或储存服务</li>
@@ -72,8 +71,7 @@
                         </table>
                     </div>
                     <h1 style="font-weight:700">API</h1>
-                    <p>GET  <code>http://106.12.108.174:1145/</code></p>
-                    <p>GET  <code>http://106.12.108.174:1145/file</code></p>
+                    <p>GET <code>http://8.129.174.55:6869/</code></p>
                     <h1 style="font-weight:700">请求</h1>
                     <div class="mdui-table-fluid">
                         <table class="mdui-table">
@@ -95,20 +93,20 @@
                             <tr>
                                 <td><code>keyword</code></td>
                                 <td>false</td>
-                                <td>None</td>
-                                <td>若指定关键字，将会返回从插画标题、作者、标签中模糊搜索的结果</td>
+                                <td><code>None</code></td>
+                                <td>若指定关键字，将会返回从插画标题、作者、标签中模糊搜索的结果（未完成</td>
                             </tr>
                             <tr>
                                 <td><code>author</code></td>
                                 <td>false</td>
-                                <td>None</td>
+                                <td><code>None</code></td>
                                 <td>若指定UID，将会返回对应作者的插画</td>
                             </tr>
                             <tr>
                                 <td><code>proxy</code></td>
                                 <td>false</td>
-                                <td>i.pixiv.cat</td>
-                                <td>设置返回的原图链接的域名，你也可以设置为<code>disable</code>来得到真正的原图链接<span><sup>[1]</sup></span></td>
+                                <td><code>i.pixiv.cat</code></td>
+                                <td>设置返回的原图链接的域名，你也可以设置为<code>disable</code>来得到真正的原图链接<sup>[1]</sup></td>
                             </tr>
                             <tr>
                                 <td><code>size1200</code></td>
@@ -116,10 +114,16 @@
                                 <td><code>false</code></td>
                                 <td>是否使用 master_1200 缩略图，即长或宽最大为 1200px 的缩略图，以节省流量或提升加载速度（某些原图的大小可以达到十几MB）</td>
                             </tr>
+                            <tr>
+                                <td><code>redirect</code></td>
+                                <td>false</td>
+                                <td><code>false</code></td>
+                                <td>是否直接重定向至插画链接（用于不方便解析返回结果的场合）</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
-                    <p><span>[1]</span>由于P站原图域名<code>i.pximg.net</code>具有防盗链措施，不含<code>www.pixiv.net</code> referer 的请求均会返回 403，所以如果需要直接在网页上展示或在客户端上直接下载必须依靠反代服务。</p>
+                    <p><sup>[1]由于P站原图域名<code>i.pximg.net</code>具有防盗链措施，不含<code>www.pixiv.net</code> referer 的请求均会返回 403，所以如果需要直接在网页上展示或在客户端上直接下载必须依靠反代服务。</sup></p>
                     <h1 style="font-weight:700">响应</h1>
                     <div class="mdui-table-fluid">
                         <table class="mdui-table">
@@ -149,8 +153,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <h5>关于 <code>/file</code></h5>
-                    <p><code>/file</code> API 的请求方法与 <code>/</code> 相同，但 <code>/file</code> 直接输出图片。<br>为节省带宽，图片为 size1200 输出（size1200 参数在此处无效</p>
                     <h2>setu</h2>
                     <div class="mdui-table-fluid">
                         <table class="mdui-table">
@@ -175,7 +177,7 @@
                             <tr>
                                 <td><code>uid</code></td>
                                 <td>int</td>
-                                <td>作品所在 P</td>
+                                <td>作者id</td>
                             </tr>
                             <tr>
                                 <td><code>title</code></td>
@@ -244,7 +246,7 @@
             <div class="mdui-container mdui-typo">
                 <div class="mdui-row">
                     <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-3">
-                        <p>GET：<code>http://106.12.108.174:1145/</code></p>
+                        <p>GET：<code>http://8.129.174.55:6869/</code></p>
                             <div class="mdui-textfield mdui-textfield-floating-label">
                                 <label class="mdui-textfield-label">r18</label>
                                 <input class="mdui-textfield-input" type="text" id="r18_i"/>
@@ -279,7 +281,7 @@
             <div class="mdui-container mdui-typo">
                 <div class="mdui-row">
                     <div class="mdui-col-xs-12 mdui-col-sm-6">
-                        <p>GET：<code>http://106.12.108.174:1145/{pid}/{p}</code></p>
+                        <p>GET：<code>http://8.129.174.55:6869/{pid}/{p}</code></p>
                             <div class="mdui-textfield mdui-textfield-floating-label">
                                 <label class="mdui-textfield-label">pid</label>
                                 <input class="mdui-textfield-input" type="text" id="pid"/>
@@ -348,7 +350,7 @@
                 }
                 $.ajax({
                 method: 'GET',
-                url: 'http://106.12.108.174:1145',
+                url: 'http://8.129.174.55:6869/',
                 data: getData,
                 complete: function (data) {
                     console.log(data)
@@ -378,7 +380,7 @@
                 console.log(document.getElementById("r18_u").checked)
                 $.ajax({
                 method: 'GET',
-                url: 'http://106.12.108.174:1145/post/'+pid+'/'+p,
+                url: 'http://8.129.174.55:6869/post/'+pid+'/'+p,
                 data: uploadData,
                 complete: function (data) {
                     console.log(data)

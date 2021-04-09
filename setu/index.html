@@ -38,8 +38,8 @@
                     <h1 style="font-weight:700">随机色图 API</h1>
                     <p>该 API 是我在看到神代dalao的 <a href="https://api.lolicon.app/#/setu" target="_blank">随机色图</a> 之后照着这个API的格式用PHP码出来的（现在又用Python重构了一遍<br>
                     由于这个API用了FastAPI框架，所以也可以使用FastAPI默认的<a href="https://fastapi.tiangolo.com/zh/features/#_3" target="_blank">交互式API文档</a>：
-                    <a href="http://106.12.108.174:1145/docs" target="_blank">Swagger UI</a>、
-                    <a href="http://106.12.108.174:1145/redoc" target="_blank">ReDoc</a></p>
+                    <a href="http://8.129.174.55:6869/docs" target="_blank">Swagger UI</a>、
+                    <a href="http://8.129.174.55:6869/redoc" target="_blank">ReDoc</a></p>
                     <h1 style="font-weight:700">前言</h1>
                     <ol>
                         <li>所有插画均来自 <a href="https://www.pixiv.net/" target="_blank">Pixiv</a>，版权也归画师所有，API 本身不提供插画的代理或储存服务</li>
@@ -319,7 +319,7 @@
             function count() {
                 $.ajax({
                 method: 'GET',
-                url: 'http://106.12.108.174:1145/count/',
+                url: 'http://8.129.174.55:6869/count/',
                 success: function (data) {
                     var json = JSON.parse(data);
                     console.log(json)
